@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | VITSConnect</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div class="login-section">
+
+    <div class="login-container">
+        <h1>Member Login</h1>
+
+        <form id="login-form">
+
+            <input type="text" id="student-number" class="login-input" placeholder="Student Number">
+
+            <input type="password" id="password" class="login-input" placeholder="Password">
+
+            <div class="remember-container">
+                <input type="checkbox" id="remember">
+                <label for="remember">Remember Me</label>
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+
+            <div class="register-text">
+                Don't have an account yet? <a href="register.html">Register</a>
+            </div>
+
+        </form>
+    </div>
+
+<footer class="footer">
+    <div class="footer-container">
+
+        <div class="footer-title">
+            <span></span>
+            <h2>VITS Connect</h2>
+            <span></span>
+        </div>
+
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="events.html">Events</a>
+            <a href="login.html">Login</a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 VITS Connect. All Rights Reserved.</p>
+            <a href="index.html" id="footerBackToTop" class="back-to-top">Back-to-Top</a>
+        </div>
+
+
+        <div id="mobileBackToTop">↑</div>
+
+    </div>
+</footer>
+
+</div>
+
+<script>
+    const mobileBackToTop = document.getElementById('mobileBackToTop');
+    const footerBackToTop = document.getElementById('footerBackToTop');
+
+
+    mobileBackToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    footerBackToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+mobileBackToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        loginValidation();
+    });
+
+    function loginValidation() {
+        const studentNumberInput = document.querySelector(".login-input[type='text']");
+        const passwordInput = document.querySelector(".login-input[type='password']");
+
+        const studentNumber = studentNumberInput.value.trim();
+        const password = passwordInput.value;
+
+        let isValid = true;
+
+        // CLEAR OLD ERRORS FIRST
+        clearError(studentNumberInput);
+        clearError(passwordInput);
+
+        // STUDENT NUMBER
+        if (studentNumber === '') {
+            showError(studentNumberInput, 'Student number is required.');
+            isValid = false;
+        } else if (!/^\d{6}$/.test(studentNumber)) {
+            showError(studentNumberInput, '6 digits needed.');
+            isValid = false;
+        }
+
+        // PASSWORD
+        if (password.length < 6) {
+            showError(passwordInput, 'Must be at least 6 characters.');
+            isValid = false;
+        }
+
+        // SUCCESS
+        if (isValid) {
+            alert("Login Successful !"); // simple popup (no CSS changes)
+
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 500);
+        }
+    }
+
+    function showError(input, message) {
+        const error = document.createElement("small");
+        error.style.color = "red";
+        error.textContent = message;
+
+        input.style.borderColor = "red";
+
+        input.parentNode.insertBefore(error, input.nextSibling);
+    }
+
+    function clearError(input) {
+        const next = input.nextElementSibling;
+
+        if (next && next.tagName === "SMALL") {
+            next.remove();
+        }
+
+        input.style.borderColor = "";
+    }
+
+});
+</script>
+
+</body>
+</html>

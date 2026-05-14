@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | VITSConnect</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ICON -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <h2 class="title">All Events</h2>
+
+        <div class="filter-container">
+
+            <!-- SEARCH -->
+            <div class="search-bar">
+                <span class="material-symbols-outlined">search</span>
+                <input type="search" id="search-input" placeholder="Search">
+            </div>
+
+            <!-- CATEGORY -->
+            <select id="category-filter" class="input-field">
+                <option value="All">All Categories</option>
+                <option value="Skill Event">Skill Event</option>
+                <option value="Competition">Competition</option>
+                <option value="Event">Event</option>
+            </select>
+
+            <!-- DATE -->
+            <div class="date-range">
+                <input type="date" id="start-date" class="date-input">
+                <span>to</span>
+                <input type="date" id="end-date" class="date-input">
+            </div>
+
+            <!-- BUTTON -->
+            <button id="search-btn" class="search-btn">Search</button>
+        </div>
+    </header>
+
+    <section class="events">
+        <div class="events-container">
+
+            <!-- EVENTS -->
+            <div class="event-item" data-category="Skill Event" data-date="2026-04-05">
+                <img src="assets/images/skill-event1.jpg">
+                <h3>IT QUIZ BEE</h3>
+                <a href="event-details-quiz.html" class="event-btn">Join</a>
+            </div>
+
+            <div class="event-item" data-category="Skill Event" data-date="2026-04-06">
+                <img src="assets/images/skill-event2.jpg">
+                <h3>Web Designing</h3>
+                <a href="event-details-web.html" class="event-btn">Join</a>
+            </div>
+
+            <div class="event-item" data-category="Skill Event" data-date="2026-04-07">
+                <img src="assets/images/skill-event3.jpg">
+                <h3>Motion Graphics</h3>
+                <a href="event-details-graphics.html" class="event-btn">Join</a>
+            </div>
+
+            <div class="event-item" data-category="Skill Event" data-date="2026-04-08">
+                <img src="assets/images/skill-event4.jpg">
+                <h3>PC Basics</h3>
+                <a href="event-details-pcassmb.html" class="event-btn">Join</a>
+            </div>
+
+            <div class="event-item" data-category="Skill Event" data-date="2026-04-09">
+                <img src="assets/images/skill-event5.jpg">
+                <h3>Networking</h3>
+                <a href="event-details-net.html" class="event-btn">Join</a>
+            </div>
+
+            <div class="event-item" data-category="Skill Event" data-date="2026-04-10">
+                <img src="assets/images/skill-event6.jpg">
+                <h3>Python</h3>
+                <a href="event-details-python.html" class="event-btn">Join</a>
+            </div>
+
+            <div class="event-item" data-category="Skill Event" data-date="2026-04-11">
+                <img src="assets/images/skill-event7.jpg">
+                <h3>C#NET</h3>
+                <a href="event-details-cnet.html" class="event-btn">Join</a>
+            </div>
+
+            <div class="event-item" data-category="Skill Event" data-date="2026-04-12">
+                <img src="assets/images/skill-event8.jpg">
+                <h3>Java</h3>
+                <a href="event-details-java.html" class="event-btn">Join</a>
+            </div>
+
+            <div class="event-item" data-category="Event" data-date="2026-04-13">
+                <img src="assets/images/event-card.jpg">
+                <h3>RITMO</h3>
+                <a href="event-details-ritmo.html" class="event-btn">Join</a>
+            </div>
+
+            <div class="event-item" data-category="Competition" data-date="2026-04-14">
+                <img src="assets/images/event-card2.jpg">
+                <h3>Dance Competition</h3>
+                <a href="event-details-dance.html" class="event-btn">Join</a>
+            </div>
+
+            <div class="event-item" data-category="Event" data-date="2026-04-15">
+                <img src="assets/images/event-card3.jpg">
+                <h3>Artistahin</h3>
+                <a href="event-details-artist.html" class="event-btn">Join</a>
+            </div>
+
+            <div class="event-item" data-category="Event" data-date="2026-04-16">
+                <img src="assets/images/event-card4.jpg">
+                <h3>Mr. Personality</h3>
+                <a href="event-details-personality.html" class="event-btn">Join</a>
+            </div>
+
+        </div>
+
+        <p id="no-results">No events found.</p>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+
+            <div class="footer-title">
+                <span></span>
+                <h2>VITS Connect</h2>
+                <span></span>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="events.html">Events</a>
+                <a href="login.html">Login</a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 VITS Connect. All Rights Reserved.</p>
+                <a href="index.html" id="footerBackToTop" class="back-to-top">Back-to-Top</a>
+            </div>
+
+            <div id="mobileBackToTop">↑</div>
+
+        </div>
+    </footer>
+
+    <script>
+            const mobileBackToTop = document.getElementById('mobileBackToTop');
+    const footerBackToTop = document.getElementById('footerBackToTop');
+
+
+    mobileBackToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    footerBackToTop.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    
+        const searchInput = document.getElementById("search-input");
+        const categoryFilter = document.getElementById("category-filter");
+        const startDate = document.getElementById("start-date");
+        const endDate = document.getElementById("end-date");
+        const searchBtn = document.getElementById("search-btn");
+        const events = document.querySelectorAll(".event-item");
+        const noResults = document.getElementById("no-results");
+
+        function filterEvents() {
+            let visible = 0;
+
+            events.forEach(event => {
+                const title = event.querySelector("h3").textContent.toLowerCase();
+                const category = event.dataset.category;
+                const date = event.dataset.date;
+
+                const searchText = searchInput.value.toLowerCase();
+                const selectedCategory = categoryFilter.value;
+                const start = startDate.value;
+                const end = endDate.value;
+
+                let matchText = title.includes(searchText);
+                let matchCategory = selectedCategory === "All" || category === selectedCategory;
+                let matchDate = true;
+
+                if (start && end) {
+                    matchDate = date >= start && date <= end;
+                }
+
+                if (matchText && matchCategory && matchDate) {
+                    event.style.display = "";
+                    visible++;
+                } else {
+                    event.style.display = "none";
+                }
+            });
+
+            noResults.style.display = visible === 0 ? "block" : "none";
+        }
+
+        searchBtn.addEventListener("click", filterEvents);
+        searchInput.addEventListener("input", filterEvents);
+        categoryFilter.addEventListener("change", filterEvents);
+        startDate.addEventListener("change", filterEvents);
+        endDate.addEventListener("change", filterEvents);
+    </script>
+
+</body>
+
+</html>
